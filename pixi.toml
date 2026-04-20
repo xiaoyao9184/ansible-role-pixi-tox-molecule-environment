@@ -43,6 +43,176 @@ pip = "*"
 python = "3.14.*"
 pip = "*"
 
+[feature.ansible-core-2-9.pypi-dependencies]
+molecule = { version = "<5", extras = ["docker"]}
+molecule-docker = "<=1.1.0"
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible = ">=2.9.0,<2.10.0"
+# last support ansible-base is ansible-lint <= 5.1.3
+ansible-lint = "<=5.1.3"
+# last support ansible-base is ansible-lint <= 5.1.3
+ansible-compat = "<=2.2.7"
+# fix dependencies `rich` break change
+# see https://github.com/ansible/ansible-lint/issues/1795
+rich = "==10.11.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-10.pypi-dependencies]
+molecule = { version = "<5", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+# BUG in 2.10.17
+# fix `ImportError: cannot import name 'should_retry_error' from 'ansible.galaxy.api'`
+ansible-base = "==2.10.16"
+ansible = ">=3.0.0,<4.0.0"
+# last support ansible-base is ansible-lint <= 5.1.3
+ansible-lint = "<=5.1.3"
+# last support ansible-base is ansible-lint <= 5.1.3
+ansible-compat = "<=2.2.7"
+# fix dependencies `rich` break change
+#  see https://github.com/ansible/ansible-lint/issues/1795
+rich = "==10.11.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-11.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.11.0,<2.12.0"
+ansible = ">=4.0.0,<5.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-12.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.12.0,<2.13.0"
+ansible = ">=5.0.0,<6.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-13.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.13.0,<2.14.0"
+ansible = ">=6.0.0,<7.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-14.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.14.0,<2.15.0"
+ansible = ">=7.0.0,<8.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-15.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.15.0,<2.16.0"
+ansible = ">=8.0.0,<9.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+# fix https://github.com/docker/docker-py/issues/3256
+requests = "<=2.32.0"
+
+[feature.ansible-core-2-16.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.16.0,<2.17.0"
+ansible = ">=9.0.0,<10.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-17.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.17.0,<2.18.0"
+ansible = ">=10.0.0,<11.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-18.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.18.0,<2.19.0"
+ansible = ">=11.0.0,<12.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-19.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.19.0,<2.20.0"
+ansible = ">=12.0.0,<13.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-20.pypi-dependencies]
+molecule = "*"
+molecule-plugins = { version = "*", extras = ["docker"]}
+paramiko = "*"
+flake8 = "*"
+yamllint = "*"
+ansible-lint = "*"
+ansible-core = ">=2.20.0,<2.21.0"
+ansible = ">=13.0.0,<14.0.0"
+jmespath = "*"
+pywinrm = "==0.4.3"
+
 [environments]
 py35 = { features = ["py35"], no-default-feature = true }
 py36 = { features = ["py36"], no-default-feature = true }
@@ -54,3 +224,16 @@ py311 = { features = ["py311"], no-default-feature = true }
 py312 = { features = ["py312"], no-default-feature = true }
 py313 = { features = ["py313"], no-default-feature = true }
 py314 = { features = ["py314"], no-default-feature = true }
+
+core29 = { features = ["ansible-core-2-9", "py38"], no-default-feature = true }
+core210 = { features = ["ansible-core-2-10", "py39"], no-default-feature = true }
+core211 = { features = ["ansible-core-2-11", "py39"], no-default-feature = true }
+core212 = { features = ["ansible-core-2-12", "py310"], no-default-feature = true }
+core213 = { features = ["ansible-core-2-13", "py310"], no-default-feature = true }
+core214 = { features = ["ansible-core-2-14", "py311"], no-default-feature = true }
+core215 = { features = ["ansible-core-2-15", "py311"], no-default-feature = true }
+core216 = { features = ["ansible-core-2-16", "py312"], no-default-feature = true }
+core217 = { features = ["ansible-core-2-17", "py312"], no-default-feature = true }
+core218 = { features = ["ansible-core-2-18", "py313"], no-default-feature = true }
+core219 = { features = ["ansible-core-2-19", "py313"], no-default-feature = true }
+core220 = { features = ["ansible-core-2-20", "py314"], no-default-feature = true }
