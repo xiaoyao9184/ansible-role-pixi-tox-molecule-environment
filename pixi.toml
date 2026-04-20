@@ -1,0 +1,56 @@
+[workspace]
+name = "ansible-role-pixi-tox-molecule-environment"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[feature.py35.dependencies]
+python = "3.5.*"
+pip = "*"
+
+[feature.py36.dependencies]
+python = "3.6.*"
+pip = "*"
+
+[feature.py37.dependencies]
+python = "3.7.*"
+pip = "*"
+
+[feature.py38.dependencies]
+python = "3.8.*"
+pip = "*"
+
+[feature.py39.dependencies]
+python = "3.9.*"
+pip = "*"
+
+[feature.py310.dependencies]
+python = "3.10.*"
+pip = "*"
+
+[feature.py311.dependencies]
+python = "3.11.*"
+pip = "*"
+
+[feature.py312.dependencies]
+python = "3.12.*"
+pip = "*"
+
+[feature.py313.dependencies]
+python = "3.13.*"
+pip = "*"
+
+[feature.py314.dependencies]
+python = "3.14.*"
+pip = "*"
+
+[environments]
+py35 = { features = ["py35"], no-default-feature = true }
+py36 = { features = ["py36"], no-default-feature = true }
+py37 = { features = ["py37"], no-default-feature = true }
+py38 = { features = ["py38"], no-default-feature = true }
+py39 = { features = ["py39"], no-default-feature = true }
+py310 = { features = ["py310"], no-default-feature = true }
+py311 = { features = ["py311"], no-default-feature = true }
+py312 = { features = ["py312"], no-default-feature = true }
+py313 = { features = ["py313"], no-default-feature = true }
+py314 = { features = ["py314"], no-default-feature = true }
