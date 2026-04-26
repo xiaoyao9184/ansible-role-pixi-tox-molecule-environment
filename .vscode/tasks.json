@@ -1,0 +1,87 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "bash: molecule cache remove",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run molecule cache remove from bash on molecule core dir'",
+                "&& rm -rdf ${workspaceFolder}/molecule/${input:moleculeCore}/.cache/",
+                "&& rm -rdf ${workspaceFolder}/molecule/${input:moleculeCore}/.ansible/"
+            ]
+        },
+        {
+            "label": "pixi: molecule scenario test",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run molecule test all scenarios on all ansible-core versions'",
+                // ref: [[#unknown_error_with_docker_driver|Skip the Docker scenario in this environment]]
+                "&& pixi run -e core29 molecule test --scenario-name default",
+                // ref: [[#unknown_error_with_docker_driver|Skip the Docker scenario in this environment]]
+                "&& pixi run -e core210 molecule test --scenario-name default",
+                // ref: [[#unknown_error_with_docker_driver|Skip the Docker scenario in this environment]]
+                "&& pixi run -e core211 molecule test --scenario-name default",
+                "&& pixi run -e core212 molecule test --all",
+                "&& pixi run -e core213 molecule test --all",
+                "&& pixi run -e core214 molecule test --all",
+                "&& pixi run -e core215 molecule test --all",
+                "&& pixi run -e core216 molecule test --all",
+                "&& pixi run -e core217 molecule test --all",
+                "&& pixi run -e core218 molecule test --all",
+                "&& pixi run -e core219 molecule test --all",
+                "&& pixi run -e core220 molecule test --all",
+            ]
+        },
+        {
+            "label": "pixi: molecule scenario list",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run molecule list all scenarios on all ansible-core versions'",
+                "&& pixi run -e core29 molecule list",
+                "&& pixi run -e core210 molecule list",
+                "&& pixi run -e core211 molecule list",
+                "&& pixi run -e core212 molecule list",
+                "&& pixi run -e core213 molecule list",
+                "&& pixi run -e core214 molecule list",
+                "&& pixi run -e core215 molecule list",
+                "&& pixi run -e core216 molecule list",
+                "&& pixi run -e core217 molecule list",
+                "&& pixi run -e core218 molecule list",
+                "&& pixi run -e core219 molecule list",
+                "&& pixi run -e core220 molecule list",
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "moleculeCore",
+            "type": "pickString",
+            "description": "Select the Molecule core environment",
+            "default": "core220",
+            // Consistent with pixi environments and molecule/* directories
+            "options": [
+                "core29",
+                "core210",
+                "core211",
+                "core212",
+                "core213",
+                "core214",
+                "core215",
+                "core216",
+                "core217",
+                "core218",
+                "core219",
+                "core220"
+            ]
+        }
+    ]
+}
