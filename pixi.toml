@@ -6,42 +6,110 @@ platforms = ["linux-64"]
 [feature.py35.dependencies]
 python = "3.5.*"
 pip = "*"
+# cant use pypi dependencies with py35
+tox = "*"
+
+[feature.py35.tasks]
+generate-tox-deps = "echo 'py35 does not use dependencies defined in pixi'"
+tox = { cmd = "tox -c tox/py35/tox.ini", depends-on = ["generate-tox-deps"] }
 
 [feature.py36.dependencies]
 python = "3.6.*"
 pip = "*"
+# cant use pypi dependencies with py36
+tox = "*"
+
+[feature.py36.tasks]
+generate-tox-deps = "echo 'py36 does not use dependencies defined in pixi'"
+tox = { cmd = "tox -c tox/py36/tox.ini", depends-on = ["generate-tox-deps"] }
 
 [feature.py37.dependencies]
 python = "3.7.*"
 pip = "*"
 
+[feature.py37.pypi-dependencies]
+tox = "*"
+
+[feature.py37.tasks]
+generate-tox-deps = "echo 'py36 does not use dependencies defined in pixi'"
+tox = { cmd = "tox -c tox/py37/tox.ini", depends-on = ["generate-tox-deps"] }
+
 [feature.py38.dependencies]
 python = "3.8.*"
 pip = "*"
+
+[feature.py38.pypi-dependencies]
+tox = "*"
+
+[feature.py38.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py38/pyproject.toml"
+tox = { cmd = "tox -c tox/py38/tox.ini", depends-on = ["generate-tox-deps"] }
 
 [feature.py39.dependencies]
 python = "3.9.*"
 pip = "*"
 
+[feature.py39.pypi-dependencies]
+tox = "*"
+
+[feature.py39.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py39/pyproject.toml"
+tox = { cmd = "tox -c tox/py39/tox.ini", depends-on = ["generate-tox-deps"] }
+
 [feature.py310.dependencies]
 python = "3.10.*"
 pip = "*"
+
+[feature.py310.pypi-dependencies]
+tox = "*"
+
+[feature.py310.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py310/pyproject.toml"
+tox = { cmd = "tox -c tox/py310/tox.ini", depends-on = ["generate-tox-deps"] }
 
 [feature.py311.dependencies]
 python = "3.11.*"
 pip = "*"
 
+[feature.py311.pypi-dependencies]
+tox = "*"
+
+[feature.py311.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py311/pyproject.toml"
+tox = { cmd = "tox -c tox/py311/tox.ini", depends-on = ["generate-tox-deps"] }
+
 [feature.py312.dependencies]
 python = "3.12.*"
 pip = "*"
+
+[feature.py312.pypi-dependencies]
+tox = "*"
+
+[feature.py312.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py312/pyproject.toml"
+tox = { cmd = "tox -c tox/py312/tox.ini", depends-on = ["generate-tox-deps"] }
 
 [feature.py313.dependencies]
 python = "3.13.*"
 pip = "*"
 
+[feature.py313.pypi-dependencies]
+tox = "*"
+
+[feature.py313.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py313/pyproject.toml"
+tox = { cmd = "tox -c tox/py313/tox.ini", depends-on = ["generate-tox-deps"] }
+
 [feature.py314.dependencies]
 python = "3.14.*"
 pip = "*"
+
+[feature.py314.pypi-dependencies]
+tox = "*"
+
+[feature.py314.tasks]
+generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py314/pyproject.toml"
+tox = { cmd = "tox -c tox/py314/tox.ini", depends-on = ["generate-tox-deps"] }
 
 [feature.ansible-core-2-9.pypi-dependencies]
 molecule = { version = "<5", extras = ["docker"]}
@@ -350,3 +418,6 @@ core217 = { features = ["ansible-core-2-17", "py312"], no-default-feature = true
 core218 = { features = ["ansible-core-2-18", "py313"], no-default-feature = true }
 core219 = { features = ["ansible-core-2-19", "py313"], no-default-feature = true }
 core220 = { features = ["ansible-core-2-20", "py314"], no-default-feature = true }
+
+# for scripts `generate_tox_deps`
+default = { features = ["py314"] }

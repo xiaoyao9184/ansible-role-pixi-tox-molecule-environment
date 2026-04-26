@@ -2,3 +2,7 @@
 
 molecule/*/.cache/
 molecule/*/.ansible/
+
+.tox/
+tox/*/pyproject.toml
+__pycache__/
