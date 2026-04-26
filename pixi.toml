@@ -62,6 +62,16 @@ pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
 
+[feature.ansible-core-2-9.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-9.tasks.molecule.env]
+ANSIBLE_CONFIG = "$PIXI_PROJECT_ROOT/molecule/ansible.old-galaxy.cfg"
+MOLECULE_GLOB = "molecule/core29/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core29/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core29/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core29/.ansible/roles"
+
 [feature.ansible-core-2-10.pypi-dependencies]
 molecule = { version = "<5", extras = ["docker"]}
 paramiko = "*"
@@ -83,6 +93,16 @@ pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
 
+[feature.ansible-core-2-10.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-10.tasks.molecule.env]
+ANSIBLE_CONFIG = "$PIXI_PROJECT_ROOT/molecule/ansible.old-galaxy.cfg"
+MOLECULE_GLOB = "molecule/core210/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core210/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core210/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core210/.ansible/roles"
+
 [feature.ansible-core-2-11.pypi-dependencies]
 molecule = "*"
 molecule-plugins = { version = "*", extras = ["docker"]}
@@ -97,8 +117,19 @@ pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
 
+[feature.ansible-core-2-11.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-11.tasks.molecule.env]
+ANSIBLE_CONFIG = "$PIXI_PROJECT_ROOT/molecule/ansible.old-galaxy.cfg"
+MOLECULE_GLOB = "molecule/core211/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core211/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core211/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core211/.ansible/roles"
+
 [feature.ansible-core-2-12.pypi-dependencies]
-molecule = "*"
+# ref: [[#glob_notwork|Go to molecule/README.md#glob_notwork]]
+molecule = "<6"
 molecule-plugins = { version = "*", extras = ["docker"]}
 paramiko = "*"
 flake8 = "*"
@@ -111,8 +142,18 @@ pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
 
+[feature.ansible-core-2-12.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-12.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core212/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core212/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core212/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core212/.ansible/roles"
+
 [feature.ansible-core-2-13.pypi-dependencies]
-molecule = "*"
+# ref: [[#glob_notwork|Go to molecule/README.md#glob_notwork]]
+molecule = "<6"
 molecule-plugins = { version = "*", extras = ["docker"]}
 paramiko = "*"
 flake8 = "*"
@@ -124,6 +165,15 @@ jmespath = "*"
 pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
+
+[feature.ansible-core-2-13.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-13.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core213/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core213/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core213/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core213/.ansible/roles"
 
 [feature.ansible-core-2-14.pypi-dependencies]
 molecule = "*"
@@ -139,6 +189,15 @@ pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
 
+[feature.ansible-core-2-14.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-14.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core214/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core214/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core214/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core214/.ansible/roles"
+
 [feature.ansible-core-2-15.pypi-dependencies]
 molecule = "*"
 molecule-plugins = { version = "*", extras = ["docker"]}
@@ -153,6 +212,15 @@ pywinrm = "==0.4.3"
 # fix https://github.com/docker/docker-py/issues/3256
 requests = "<=2.32.0"
 
+[feature.ansible-core-2-15.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-15.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core215/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core215/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core215/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core215/.ansible/roles"
+
 [feature.ansible-core-2-16.pypi-dependencies]
 molecule = "*"
 molecule-plugins = { version = "*", extras = ["docker"]}
@@ -164,6 +232,15 @@ ansible-core = ">=2.16.0,<2.17.0"
 ansible = ">=9.0.0,<10.0.0"
 jmespath = "*"
 pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-16.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-16.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core216/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core216/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core216/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core216/.ansible/roles"
 
 [feature.ansible-core-2-17.pypi-dependencies]
 molecule = "*"
@@ -177,6 +254,15 @@ ansible = ">=10.0.0,<11.0.0"
 jmespath = "*"
 pywinrm = "==0.4.3"
 
+[feature.ansible-core-2-17.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-17.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core217/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core217/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core217/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core217/.ansible/roles"
+
 [feature.ansible-core-2-18.pypi-dependencies]
 molecule = "*"
 molecule-plugins = { version = "*", extras = ["docker"]}
@@ -188,6 +274,15 @@ ansible-core = ">=2.18.0,<2.19.0"
 ansible = ">=11.0.0,<12.0.0"
 jmespath = "*"
 pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-18.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-18.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core218/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core218/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core218/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core218/.ansible/roles"
 
 [feature.ansible-core-2-19.pypi-dependencies]
 molecule = "*"
@@ -201,6 +296,15 @@ ansible = ">=12.0.0,<13.0.0"
 jmespath = "*"
 pywinrm = "==0.4.3"
 
+[feature.ansible-core-2-19.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-19.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core219/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core219/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core219/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core219/.ansible/roles"
+
 [feature.ansible-core-2-20.pypi-dependencies]
 molecule = "*"
 molecule-plugins = { version = "*", extras = ["docker"]}
@@ -212,6 +316,15 @@ ansible-core = ">=2.20.0,<2.21.0"
 ansible = ">=13.0.0,<14.0.0"
 jmespath = "*"
 pywinrm = "==0.4.3"
+
+[feature.ansible-core-2-20.tasks.molecule]
+cmd = "molecule"
+
+[feature.ansible-core-2-20.tasks.molecule.env]
+MOLECULE_GLOB = "molecule/core220/*/molecule.yml"
+XDG_CACHE_HOME = "$PIXI_PROJECT_ROOT/molecule/core220/.cache"
+ANSIBLE_HOME = "$PIXI_PROJECT_ROOT/molecule/core220/.ansible"
+ANSIBLE_ROLES_PATH = "$PIXI_PROJECT_ROOT/molecule/core220/.ansible/roles"
 
 [environments]
 py35 = { features = ["py35"], no-default-feature = true }

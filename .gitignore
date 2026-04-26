@@ -1,1 +1,4 @@
 .pixi/
+
+molecule/*/.cache/
+molecule/*/.ansible/

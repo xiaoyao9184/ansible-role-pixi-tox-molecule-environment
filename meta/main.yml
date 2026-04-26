@@ -1,5 +1,7 @@
 galaxy_info:
-  author: your name
+  # The automatically generated name is unstable when the field is empty.
+  role_name: pixi_tox_molecule_environment
+  author: your_name
   description: your role description
   company: your company (optional)
 
