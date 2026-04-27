@@ -1,8 +1,10 @@
 # VS Code Debug Guide
 
-This guide explains how to use the VS Code launch configurations in this workspace to debug the Python code paths of `molecule`.
+This guide explains how to use the VS Code launch configurations in this workspace to debug the Python code paths of `molecule` and `tox`.
 
 Debugging `molecule` across different Ansible core versions helps reveal behavioral differences between Molecule and Ansible combinations, which makes it easier to write and adjust `molecule.yml` files with confidence.
+
+Debugging `tox` with the newest supported Python version helps us understand how Molecule execution environments are created across different Python and Ansible core combinations, which is useful when improving test coverage.
 
 The role itself usually does not need to be debugged here. The main goal of this setup is to debug the tooling around the role.
 
@@ -19,6 +21,7 @@ Before starting any debug session, set the workspace interpreter in VS Code:
 you must select the interpreter from the `.pixi` directory inside this project. interpreter selection:
 
 - If you want to debug `molecule`, select the interpreter from the `.pixi` environment for the target `core2*` environment, such as `core29`, `core214`, or `core220`.
+- If you want to debug `tox`, select the interpreter from the `.pixi` environment for `tox`.
 
 ### 2. Debug `molecule`
 
@@ -50,6 +53,25 @@ This version match is important because the launch configuration sets environmen
 - `ANSIBLE_ROLES_PATH`
 
 These values are built from the selected core version, so mismatching the interpreter and the prompt can lead to confusing results.
+
+### 3. Debug `tox`
+
+Use the `tox` interpreter when you want to inspect how `tox` resolves environments and builds Molecule test environments.
+
+Available debug entries include:
+
+- `tox: env list`
+- `tox: env test`
+
+Typical workflow:
+
+1. Select the `.pixi` interpreter for the `tox` environment.
+2. Open the Run and Debug view in VS Code.
+3. Start `tox: env list` to inspect available environments.
+4. Start `tox: env test` to debug a specific tox environment.
+5. When prompted, choose the target tox environment from the picker.
+
+This is especially useful for understanding how different Python versions and Ansible core versions affect environment creation and execution behavior.
 
 ## For no-debug tasks
 

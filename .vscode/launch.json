@@ -6,6 +6,59 @@
     "configurations": [
         {
             // Before running the program,
+            // please be sure to select a Python interpreter named `default` in pixi.
+            "name": "tox: deps generate",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${cwd}/scripts/generate_tox_deps.py",
+            "args": [
+                "--pixi",
+                "${workspaceFolder}/pixi.toml",
+                "--pyproject-output",
+                "tox/${input:toxInterpreter}/pyproject.toml",
+            ],
+            "justMyCode": false
+        },
+        {
+            // Before running the program,
+            // please be sure to select a Python interpreter named `py*` in pixi.
+            "name": "tox: env test",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tox",
+            "env": {
+                // Reordered Input: make this input first
+                "_TOXENV": "${input:toxEnvironment}",
+                "MOLECULE_SCENARIO_NAME": "${input:moleculeScenario}",
+            },
+            "args": [
+                "-e",
+                "${input:toxEnvironment}",
+                "-c",
+                "tox/${input:toxInterpreter}/tox.ini",
+                "-v"
+            ],
+            "preLaunchTask": "pixi: tox deps generate",
+            "justMyCode": false
+        },
+        {
+            // Before running the program,
+            // please be sure to select a Python interpreter named `py*` in pixi.
+            "name": "tox: env list",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tox",
+            "args": [
+                "-l",
+                "-c",
+                "tox/${input:toxInterpreter}/tox.ini",
+                "-v"
+            ],
+            "justMyCode": false
+        },
+
+        {
+            // Before running the program,
             // please be sure to select a Python interpreter named `core*` in pixi.
             "name": "molecule: scenario test",
             "type": "debugpy",
@@ -53,6 +106,79 @@
         }
     ],
     "inputs": [
+        {
+            "id": "toxInterpreter",
+            "type": "pickString",
+            "description": "Select the tox interpreter",
+            "default": "py313",
+            // Consistent with pixi environments and tox/* directories
+            "options": [
+                "py314",
+                "py313",
+                "py312",
+                "py311",
+                "py310",
+                "py39",
+                "py38",
+                "py37",
+                "py36",
+                "py35",
+            ]
+        },
+        {
+            "id": "toxEnvironment",
+            "type": "pickString",
+            "description": "Select the tox environment",
+            // VS Code debugpy doesn't support Py3.14 very well;
+            // it doesn't do anything in install_dependency-groups.
+            // Please use other versions or use tasks.
+            "default": "molecule-py3.13-2.20",
+            // Consistent with the expanded environments of tox.ini
+            "options": [
+                "molecule-py3.14-2.20",
+                "molecule-py3.13-2.18",
+                "molecule-py3.13-2.19",
+                "molecule-py3.13-2.20",
+                "molecule-py3.12-2.16",
+                "molecule-py3.12-2.17",
+                "molecule-py3.12-2.18",
+                "molecule-py3.12-2.19",
+                "molecule-py3.12-2.20",
+                "molecule-py3.11-2.14",
+                "molecule-py3.11-2.15",
+                "molecule-py3.11-2.16",
+                "molecule-py3.11-2.17",
+                "molecule-py3.11-2.18",
+                "molecule-py3.11-2.19",
+                "molecule-py3.10-2.12",
+                "molecule-py3.10-2.13",
+                "molecule-py3.10-2.14",
+                "molecule-py3.10-2.15",
+                "molecule-py3.10-2.16",
+                "molecule-py3.10-2.17",
+                "molecule-py3.9-2.10",
+                "molecule-py3.9-2.11",
+                "molecule-py3.9-2.12",
+                "molecule-py3.9-2.13",
+                "molecule-py3.9-2.14",
+                "molecule-py3.9-2.15",
+                "molecule-py3.8-2.9",
+                "molecule-py3.8-2.10",
+                "molecule-py3.8-2.11",
+                "molecule-py3.8-2.12",
+                "molecule-py3.8-2.13",
+                "molecule-py3.7-2.9",
+                "molecule-py3.7-2.10",
+                "molecule-py3.7-2.11",
+                "molecule-py3.6-2.9",
+                "molecule-py3.6-2.10",
+                "molecule-py3.6-2.11",
+                "molecule-py3.5-2.9",
+                "molecule-py3.5-2.10",
+                "molecule-py3.5-2.11",
+            ]
+        },
+
         {
             "id": "moleculeCore",
             "type": "pickString",
