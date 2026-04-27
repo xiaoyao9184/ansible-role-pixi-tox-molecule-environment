@@ -62,10 +62,13 @@ pip = "*"
 
 [feature.py310.pypi-dependencies]
 tox = "*"
+tox-ansible = "*"
 
 [feature.py310.tasks]
 generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py310/pyproject.toml"
 tox = { cmd = "tox -c tox/py310/tox.ini", depends-on = ["generate-tox-deps"] }
+generate-tox-ansible-galaxy = "pixi run -e default python scripts/generate_tox_ansible_galaxy.py --galaxy-output tox/py310/galaxy.yml"
+tox-ansible = { cmd = "tox --ansible -c tox/py310/tox-ansible.ini", depends-on = ["generate-tox-deps", "generate-tox-ansible-galaxy"] }
 
 [feature.py311.dependencies]
 python = "3.11.*"
@@ -73,10 +76,13 @@ pip = "*"
 
 [feature.py311.pypi-dependencies]
 tox = "*"
+tox-ansible = "*"
 
 [feature.py311.tasks]
 generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py311/pyproject.toml"
 tox = { cmd = "tox -c tox/py311/tox.ini", depends-on = ["generate-tox-deps"] }
+generate-tox-ansible-galaxy = "pixi run -e default python scripts/generate_tox_ansible_galaxy.py --galaxy-output tox/py311/galaxy.yml"
+tox-ansible = { cmd = "tox --ansible -c tox/py311/tox-ansible.ini", depends-on = ["generate-tox-deps", "generate-tox-ansible-galaxy"] }
 
 [feature.py312.dependencies]
 python = "3.12.*"
@@ -84,10 +90,13 @@ pip = "*"
 
 [feature.py312.pypi-dependencies]
 tox = "*"
+tox-ansible = "*"
 
 [feature.py312.tasks]
 generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py312/pyproject.toml"
 tox = { cmd = "tox -c tox/py312/tox.ini", depends-on = ["generate-tox-deps"] }
+generate-tox-ansible-galaxy = "pixi run -e default python scripts/generate_tox_ansible_galaxy.py --galaxy-output tox/py312/galaxy.yml"
+tox-ansible = { cmd = "tox --ansible -c tox/py312/tox-ansible.ini", depends-on = ["generate-tox-deps", "generate-tox-ansible-galaxy"] }
 
 [feature.py313.dependencies]
 python = "3.13.*"
@@ -95,10 +104,13 @@ pip = "*"
 
 [feature.py313.pypi-dependencies]
 tox = "*"
+tox-ansible = "*"
 
 [feature.py313.tasks]
 generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py313/pyproject.toml"
 tox = { cmd = "tox -c tox/py313/tox.ini", depends-on = ["generate-tox-deps"] }
+generate-tox-ansible-galaxy = "pixi run -e default python scripts/generate_tox_ansible_galaxy.py --galaxy-output tox/py313/galaxy.yml"
+tox-ansible = { cmd = "tox --ansible -c tox/py313/tox-ansible.ini", depends-on = ["generate-tox-deps", "generate-tox-ansible-galaxy"] }
 
 [feature.py314.dependencies]
 python = "3.14.*"
@@ -106,10 +118,13 @@ pip = "*"
 
 [feature.py314.pypi-dependencies]
 tox = "*"
+tox-ansible = "*"
 
 [feature.py314.tasks]
 generate-tox-deps = "pixi run -e default python scripts/generate_tox_deps.py --pyproject-output tox/py314/pyproject.toml"
 tox = { cmd = "tox -c tox/py314/tox.ini", depends-on = ["generate-tox-deps"] }
+generate-tox-ansible-galaxy = "pixi run -e default python scripts/generate_tox_ansible_galaxy.py --galaxy-output tox/py314/galaxy.yml"
+tox-ansible = { cmd = "tox --ansible -c tox/py314/tox-ansible.ini", depends-on = ["generate-tox-deps", "generate-tox-ansible-galaxy"] }
 
 [feature.ansible-core-2-9.pypi-dependencies]
 molecule = { version = "<5", extras = ["docker"]}
