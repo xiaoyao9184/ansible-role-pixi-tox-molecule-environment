@@ -2,6 +2,19 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "pixi: tox matrix generate",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run tox matrix generate from molecule on pixi default environment'",
+                "&& pixi run -e default python scripts/generate_tox_matrix.py discover-molecule-scenarios",
+                "&& pixi run -e default python scripts/generate_tox_matrix.py filter-tox-envs --scenario-name 'default'",
+            ]
+        },
+
+        {
             "label": "pixi: tox deps generate",
             "type": "shell",
             "options": {
