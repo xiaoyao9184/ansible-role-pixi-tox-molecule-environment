@@ -2,6 +2,60 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "pixi: tox-ansible molecule generate",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run tox-ansible molecule generate from role on pixi default environment'",
+                "&& pixi run -e default python scripts/generate_tox_ansible_molecule.py create --tox-env ${input:toxAnsibleEnvironment} --scenario-name ${input:moleculeScenario}",
+            ]
+        },
+        {
+            "label": "pixi: tox-ansible galaxy generate",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run tox-ansible galaxy generate from role on pixi default environment'",
+                "&& pixi run -e default python scripts/generate_tox_ansible_galaxy.py --galaxy-output tox/${input:toxInterpreter}/galaxy.yml",
+            ],
+            "dependsOn": "pixi: tox deps generate",
+        },
+        {
+            "label": "pixi: tox-ansible test",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run tox-ansible test on python and ansible-core matrix versions'",
+                "&& pixi run -e py314 tox-ansible",
+                "&& pixi run -e py313 tox-ansible",
+                "&& pixi run -e py312 tox-ansible",
+                "&& pixi run -e py311 tox-ansible",
+                "&& pixi run -e py310 tox-ansible",
+            ]
+        },
+        {
+            "label": "pixi: tox-ansible list",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": [
+                "echo 'run tox-ansible test on python and ansible-core matrix versions'",
+                "&& pixi run -e py314 tox-ansible -l",
+                "&& pixi run -e py313 tox-ansible -l",
+                "&& pixi run -e py312 tox-ansible -l",
+                "&& pixi run -e py311 tox-ansible -l",
+                "&& pixi run -e py310 tox-ansible -l",
+            ]
+        },
+
+        {
             "label": "pixi: tox matrix generate",
             "type": "shell",
             "options": {
@@ -133,6 +187,29 @@
         }
     ],
     "inputs": [
+        {
+            "id": "toxAnsibleEnvironment",
+            "type": "pickString",
+            "description": "Select the tox ansible environment",
+            "default": "integration-py3.14-2.20",
+            // Consistent with the expanded environments of tox-ansible.ini
+            "options": [
+                "integration-py3.10-2.16",
+                "integration-py3.10-2.17",
+                "integration-py3.11-2.17",
+                "integration-py3.11-2.18",
+                "integration-py3.11-2.19",
+                "integration-py3.12-2.17",
+                "integration-py3.12-2.18",
+                "integration-py3.12-2.19",
+                "integration-py3.12-2.20",
+                "integration-py3.13-2.18",
+                "integration-py3.13-2.19",
+                "integration-py3.13-2.20",
+                "integration-py3.14-2.20",
+            ]
+        },
+
         {
             "id": "toxInterpreter",
             "type": "pickString",
