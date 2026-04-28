@@ -7,11 +7,11 @@ on:
       tox_args:
         description: Optional extra tox CLI args, e.g. -vvv
         required: false
-        default: ""
+        default: "-vvv"
       molecule_options:
         description: Optional extra molecule CLI args, e.g. --debug
         required: false
-        default: ""
+        default: "--debug"
 
 jobs:
   discover-molecule-scenarios:

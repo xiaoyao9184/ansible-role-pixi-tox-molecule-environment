@@ -11,12 +11,12 @@ on:
       tox_args:
         description: Optional extra tox CLI args
         required: false
-        default: ""
+        default: "-vvv"
         type: string
       molecule_options:
         description: Optional extra molecule CLI args
         required: false
-        default: ""
+        default: "--debug"
         type: string
   workflow_call:
     inputs:
