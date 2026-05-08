@@ -52,6 +52,12 @@ jobs:
         with:
           pixi-version: v0.67.1
           cache: true
+          environments: >-
+            py310
+            py311
+            py312
+            py313
+            py314
 
       - name: Filter tox envs for scenario
         id: filter-tox-envs
@@ -83,14 +89,11 @@ jobs:
         with:
           pixi-version: v0.67.1
           cache: true
-          cache-key: pixi-tox-ansible-filter-
+          cache-key: pixi-${{ matrix.entry.tox_env }}-
           cache-write: ${{ inputs.scenario == 'default' }}
           environments: >-
-            py310
-            py311
-            py312
-            py313
-            py314
+            default
+            ${{ matrix.entry.pixi_py_env }}
 
       - name: Run scenario in tox env
         id: run_tox
