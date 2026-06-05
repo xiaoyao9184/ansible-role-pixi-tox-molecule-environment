@@ -405,7 +405,10 @@
             "options": [
                 "delegated-ubuntu-latest",
                 "default-ubuntu-latest",
+                "delegated-windows-latest",
+                "delegated-windows-2022",
                 "default-windows-latest",
+                "default-windows-2022",
                 "default-macos-latest",
                 "default-macos-26",
                 "default-macos-14",
