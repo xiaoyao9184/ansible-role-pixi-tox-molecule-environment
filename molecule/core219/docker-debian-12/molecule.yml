@@ -12,7 +12,7 @@ driver:
 
 platforms:
   - name: docker
-    image: geerlingguy/docker-debian13-ansible
+    image: geerlingguy/docker-debian12-ansible
     privileged: true
     command: /lib/systemd/systemd
     # tmpfs:
@@ -33,7 +33,7 @@ provisioner:
     converge: converge.yml
 
 scenario:
-  name: docker-debian-13
+  name: docker-debian-12
 
 verifier:
   name: ansible

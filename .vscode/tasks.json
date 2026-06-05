@@ -276,6 +276,9 @@
                 "default-macos-latest",
                 "default-windows-latest",
                 "docker-debian-13",
+                "docker-debian-12",
+                "docker-debian-11",
+                "docker-debian-10",
             ]
         }
     ]
