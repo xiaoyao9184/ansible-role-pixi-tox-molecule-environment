@@ -25,6 +25,7 @@ provisioner:
         hosts:
           local:
             ansible_connection: local
+            ansible_become_password: ${MACOS_TEST_BECOME_PASSWORD}
   playbooks:
     converge: converge.yml
 
