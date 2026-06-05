@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - pixi-tox-molecule-environment
+    - your_name.pixi_tox_molecule_environment
