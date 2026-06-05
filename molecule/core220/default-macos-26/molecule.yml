@@ -30,7 +30,7 @@ provisioner:
     converge: converge.yml
 
 scenario:
-  name: default-macos-latest
+  name: default-macos-26
 
 verifier:
   name: ansible
