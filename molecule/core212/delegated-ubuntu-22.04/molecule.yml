@@ -30,7 +30,7 @@ provisioner:
     converge: converge.yml
 
 scenario:
-  name: delegated-ubuntu-latest
+  name: delegated-ubuntu-22.04
 
 verifier:
   name: ansible

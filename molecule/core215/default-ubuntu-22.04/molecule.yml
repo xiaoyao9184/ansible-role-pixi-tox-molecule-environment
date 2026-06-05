@@ -30,7 +30,7 @@ provisioner:
     converge: converge.yml
 
 scenario:
-  name: default-ubuntu-latest
+  name: default-ubuntu-22.04
 
 verifier:
   name: ansible
